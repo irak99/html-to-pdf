@@ -37,6 +37,8 @@
                 </td>
 
                 <td>
+                  <b>Клиент</b><br />
+                  <hr />
                   {{ company.ime }}<br />
                   {{ company.head }}<br />
                   {{ company.email }}
@@ -49,13 +51,13 @@
         <tr class="heading">
           <td>Начин на плаќање</td>
 
-          <td>Онлајн #</td>
+          <td>Вкупно</td>
         </tr>
 
         <tr class="details">
-          <td>Check</td>
+          <td>Преку интернет</td>
 
-          <td>1000</td>
+          <td>{{ suma }}</td>
         </tr>
 
         <tr class="heading">
@@ -64,28 +66,26 @@
         </tr>
 
         <tr class="item">
-          <td>Website design</td>
+          <td>Месечна претплата</td>
 
-          <td>$300.00</td>
+          <td>{{ suma }}</td>
         </tr>
 
         <tr class="item">
-          <td>Hosting (3 months)</td>
+          <td>ДДВ 10%</td>
 
-          <td>$75.00</td>
-        </tr>
-
-        <tr class="item last">
-          <td>Domain name (1 year)</td>
-
-          <td>$10.00</td>
+          <td>{{ suma * 0.1 }}</td>
         </tr>
 
         <tr class="total">
           <td></td>
 
-          <td>Износ МКД: 385</td>
+          <td>Износ МКД: {{ suma + suma * 0.1 }}</td>
         </tr>
+        <div style="text-align: center">
+          <p><b>Ви благодариме за довербата</b></p>
+          <p>Рекламацци се примаат во рок од 5 дена</p>
+        </div>
       </table>
     </div>
     <button class="btn btn-danger" @click="generatePdf">
@@ -102,6 +102,7 @@ export default {
   data() {
     return {
       brFaktura: 0,
+      suma: 1000,
       company: {
         ime: 'Kompir Dooel',
         email: 'Kompir.Przen@ema.com',
